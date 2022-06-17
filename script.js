@@ -5,7 +5,7 @@ const subtractContainer = document.getElementById('subtract-container');
 
 let counter = 0;
 
-fetch('http://127.0.0.1:9999/get').then((response) => {
+fetch('https://counter-backend.herokuapp.com/get').then((response) => {
   response.json().then((data) => {
     counter = data.counter;
     updateScore();
@@ -14,19 +14,19 @@ fetch('http://127.0.0.1:9999/get').then((response) => {
 
 scoreContainer.addEventListener('click', () => {
   counter = 0;
-  fetch('http://127.0.0.1:9999/reset', { method: 'POST' });
+  fetch('https://counter-backend.herokuapp.com/reset', { method: 'POST' });
   updateScore();
 });
 
 addContainer.addEventListener('click', () => {
   counter += 1;
-  fetch('http://127.0.0.1:9999/add', { method: 'POST' });
+  fetch('https://counter-backend.herokuapp.com/add', { method: 'POST' });
   updateScore();
 });
 
 subtractContainer.addEventListener('click', () => {
   counter -= 1;
-  fetch('http://127.0.0.1:9999/subtract', { method: 'POST' });
+  fetch('https://counter-backend.herokuapp.com/subtract', { method: 'POST' });
   updateScore();
 });
 
